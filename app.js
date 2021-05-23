@@ -26,7 +26,7 @@ $(document).ready(function () {
         setTimeout(() => {
             $("#me").html("$" + me);
             $("#me").removeClass("spinner");
-        }, Math.floor(Math.random() * 3000) );
+        }, Math.floor(Math.random() * 3000));
 
 
     });
@@ -87,14 +87,14 @@ $(document).ready(function () {
                         console.log("ai=temp = " + ai)
 
 
-                        
-        $("#bln").html(" ")
-        $("#bln").addClass("spinner");
-        setTimeout(() => {
-            $("#bln").html("My balance: $" + balance);
-            $("#bln").removeClass("spinner");
-        }, 5000 );
-                        
+
+                        $("#bln").html(" ")
+                        $("#bln").addClass("spinner");
+                        setTimeout(() => {
+                            $("#bln").html("My balance: $" + balance);
+                            $("#bln").removeClass("spinner");
+                        }, 5000);
+
                         let aihtml = $("#ai").html()
 
                         setTimeout(() => {
