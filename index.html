@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script src="app.js" defer></script>
+    <title>Game</title>
+</head>
+<body style="background-color: #F7C59F;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <h2 style="color: #FF6B35; " id="ai">$0</h2>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                    <h2 style="color: #FF6B35; " id="me">$0</h2>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <h1  style="color: #FF6B35; cursor: pointer;" id="run">Run</h1>
+                <h1  style="color: #FF6B35; cursor: pointer;" id="add">Add</h1>
+                <h1  style="color: #FF6B35; cursor: pointer;" id="open">Open</h1>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <h1 style="color: #FF6B35; " id="bln">My balance: $1000</h1>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<style>
+    .spinner{
+        background-color: #F7C59F;
+        --spinner-back-color: #F7C59F;
+        --spinner-fore-color:#FF6B35;
+    }
+    *{
+        user-select: none;
+    }
+</style>
