@@ -85,7 +85,16 @@ $(document).ready(function () {
                         ai = tempai
                         balance += ai;
                         console.log("ai=temp = " + ai)
-                        $("#bln").html("My balance: $" + balance);
+
+
+                        
+        $("#bln").html(" ")
+        $("#bln").addClass("spinner");
+        setTimeout(() => {
+            $("#bln").html("My balance: $" + balance);
+            $("#bln").removeClass("spinner");
+        }, 5000 );
+                        
                         let aihtml = $("#ai").html()
 
                         setTimeout(() => {
