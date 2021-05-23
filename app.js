@@ -59,7 +59,7 @@ $(document).ready(function () {
             setTimeout(() => {
                 $("#ai").html(aihtml)
                 $("#ai").removeClass("spinner")
-            }, Math.floor(Math.random() * 1000) + 2000);
+            }, Math.floor(Math.random() * 2000) + 2000);
 
             let stopme = setInterval(() => {
                 console.log("randomClicks = " + randomClicks)
@@ -131,7 +131,7 @@ $(document).ready(function () {
 
 
 
-            }, 5000);
+            }, 4000);
 
 
 
