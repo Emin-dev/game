@@ -3,6 +3,25 @@
 
 $(document).ready(function () {
 
+    let sound = new Howl({
+        src: ['https://youtu.be/htDb9GvnDxU'],
+        html5: true
+      });
+      
+      sound.play();
+      
+
+
+
+
+
+
+
+
+
+
+
+
     let me = 0;
     let ai = 0;
     let balance = 1000;
