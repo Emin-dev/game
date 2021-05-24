@@ -6,10 +6,10 @@ $(document).ready(function () {
     let sound = new Howl({
         src: ['https://youtu.be/htDb9GvnDxU'],
         html5: true
-      });
-      
-      sound.play();
-      Howler.volume(10);
+    });
+
+    sound.play();
+    Howler.volume(10);
 
 
 
@@ -165,11 +165,21 @@ $(document).ready(function () {
             console.log("myif")
             if (tempme < tempai) {
                 balance -= tempme;
-                $("#bln").html("My balance: $" + balance)
+                $("#bln").html(" ")
+                $("#bln").addClass("spinner");
+                setTimeout(() => {
+                    $("#bln").html("My balance: $" + balance);
+                    $("#bln").removeClass("spinner");
+                }, Math.floor(Math.random() * 1000) + 1000);
             }
             if (tempme > tempai) {
                 balance += ai;
-                $("#bln").html("My balance: $" + balance);
+                $("#bln").html(" ")
+                $("#bln").addClass("spinner");
+                setTimeout(() => {
+                    $("#bln").html("My balance: $" + balance);
+                    $("#bln").removeClass("spinner");
+                }, Math.floor(Math.random() * 1000) + 1000);
             }
 
         }
@@ -191,7 +201,12 @@ $(document).ready(function () {
             }
             $("#me").html($("#me").html() + " +   $" + num);
             balance -= tempme;
-            $("#bln").html("My balance: $" + balance)
+            $("#bln").html(" ")
+            $("#bln").addClass("spinner");
+            setTimeout(() => {
+                $("#bln").html("My balance: $" + balance);
+                $("#bln").removeClass("spinner");
+            }, Math.floor(Math.random() * 1000) + 1000);
         }
         else {
             $("#me").html($("#me").html() + " +   $" + num);
