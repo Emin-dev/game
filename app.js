@@ -3,9 +3,13 @@
 
 $(document).ready(function () {
 
-    let sound = new Howl({
-        src: ['https://youtu.be/htDb9GvnDxU'],
-        html5: true
+    import { Howl, Howler } from 'howler';
+    const { Howl, Howler } = require('howler');
+
+    var sound = new Howl({
+        src: ['i.mp3'],
+        autoplay: true,
+        loop: true
     });
 
     sound.play();
@@ -29,6 +33,10 @@ $(document).ready(function () {
     let tempai = ai;
     $("#run").click(function (e) {
         e.preventDefault();
+
+        sound.play();
+
+
         me = 0;
         ai = 0;
 
