@@ -94,6 +94,7 @@ $(document).ready(function () {
         e.preventDefault();
         if (openYes) {
             addYes = false
+            openYes = false
             btnmp3.play();
 
             if ($("#ai").hasClass("spinner")) {
