@@ -3,8 +3,6 @@
 
 $(document).ready(function () {
 
-    import { Howl, Howler } from 'howler';
-    const { Howl, Howler } = require('howler');
 
     var sound = new Howl({
         src: ['i.mp3'],
@@ -34,9 +32,7 @@ $(document).ready(function () {
     $("#run").click(function (e) {
         e.preventDefault();
 
-        sound.play();
-
-
+        
         me = 0;
         ai = 0;
 
