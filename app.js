@@ -95,7 +95,7 @@ $(document).ready(function () {
                 openYes = true
                 addYes = true
                 btnmp3.play();
-            }, Math.floor(Math.random() * 1000) + 3000);
+            }, Math.floor(Math.random() * 3000) + 2000);
         }
         else {
             btnOlmazmp3.play();
