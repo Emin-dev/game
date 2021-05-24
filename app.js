@@ -3,9 +3,11 @@
 
 $(document).ready(function () {
 
+    
+
     Howler.volume(0.1);
 
-    // var sound = new Howl({
+    // let sound = new Howl({
     //     src: ['i.mp3'],
     //     autoplay: true,
     //     loop: true
@@ -15,22 +17,22 @@ $(document).ready(function () {
 
 
 
-    var btnmp3 = new Howl({
+    let btnmp3 = new Howl({
         src: ['btn.wav']
     });
-    var pulGeldimp3 = new Howl({
+    let pulGeldimp3 = new Howl({
         src: ['pulGeldi.wav']
     });
-    var pulGetdiimp3 = new Howl({
+    let pulGetdiimp3 = new Howl({
         src: ['pulGetdii.wav']
     });
-    var hmmmmp3 = new Howl({
+    let hmmmmp3 = new Howl({
         src: ['hmmm.mp3']
     });
-    var btnOlmazmp3 = new Howl({
+    let btnOlmazmp3 = new Howl({
         src: ['btnOlmaz.wav']
     });
-    var i4to1mp3 = new Howl({
+    let i4to1mp3 = new Howl({
         src: ['me.wav']
     });
 
@@ -39,7 +41,7 @@ $(document).ready(function () {
 
 
 
-    let runYes = true;
+    let runYes = false;
     let addYes = false;
     let openYes = false;
 
@@ -53,13 +55,21 @@ $(document).ready(function () {
     let tempai = ai;
     let addMe3 = 0;
 
+    $("#bln").html(" ")
+    $("#bln").addClass("spinner");
+
+
+
+    
+    setTimeout(() => { checkCookie() }, Math.floor(Math.random() * 1000) + 1000)
+
     $("#run").click(function (e) {
         e.preventDefault();
         if (runYes) {
-            if (game>=10) {
-                game-=5
+            if (game >= 10) {
+                game -= 5
             }
-            
+
             btnmp3.play();
             runYes = false
             addMe3 = 0;
@@ -77,7 +87,7 @@ $(document).ready(function () {
             $("#me").html(" ")
             $("#ai").addClass("spinner");
             $("#me").addClass("spinner");
-            setTimeout(()=> {i4to1mp3.play()},100)
+            setTimeout(() => { i4to1mp3.play() }, 100)
             setTimeout(() => {
                 i4to1mp3.stop();
                 $("#me").html("$" + me);
@@ -144,7 +154,7 @@ $(document).ready(function () {
 
 
                         console.log("tempai = " + tempai)
-                        let num = Math.floor(Math.random() * game); 
+                        let num = Math.floor(Math.random() * game);
                         console.log("num = " + num)
                         tempai += num;
 
@@ -153,6 +163,7 @@ $(document).ready(function () {
                             console.log("ai = " + ai)
                             ai = tempai
                             balance += ai;
+                            setCookie("username", balance, 365);
                             console.log("ai=temp = " + ai)
 
 
@@ -221,6 +232,7 @@ $(document).ready(function () {
                 console.log("myif")
                 if (tempme < tempai) {
                     balance -= tempme;
+                    setCookie("username", balance, 365);
                     $("#bln").html(" ")
                     $("#bln").addClass("spinner");
                     setTimeout(() => {
@@ -234,6 +246,7 @@ $(document).ready(function () {
                 }
                 if (tempme > tempai) {
                     balance += ai;
+                    setCookie("username", balance, 365);
                     $("#bln").html(" ")
                     $("#bln").addClass("spinner");
                     setTimeout(() => {
@@ -257,13 +270,13 @@ $(document).ready(function () {
     });
 
 
-    
+
     $("#add").click(function (e) {
         e.preventDefault();
         if (addYes) {
             addMe3++;
             if (addMe3 >= 3) {
-                addMe3= false
+                addMe3 = false
             }
             btnmp3.play();
 
@@ -278,6 +291,7 @@ $(document).ready(function () {
                 }
                 $("#me").html($("#me").html() + " +   $" + num);
                 balance -= tempme;
+                setCookie("username", balance, 365);
                 $("#bln").html(" ")
                 $("#bln").addClass("spinner");
                 setTimeout(() => {
@@ -301,6 +315,74 @@ $(document).ready(function () {
 
 
     });
+
+
+
+
+    $("#reset").click(function (e) {
+        e.preventDefault();
+        let user = getCookie("username");
+        setCookie("username", user, 0);
+        btnmp3.play();
+        location.reload();
+    });
+
+
+
+
+    function setCookie(cname, cvalue, exdays) {
+        let d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        let user = getCookie("username");
+        if (user != "") {
+            $("#bln").html("My balance: $" + user);
+            openYes = false
+            addYes = false
+            runYes = true
+            $("#bln").removeClass("spinner");
+        } else {
+            user = balance;
+            $("#bln").html("My balance: $" + balance);
+            openYes = false
+            addYes = false
+            runYes = true
+            $("#bln").removeClass("spinner");
+            if (user != "" && user != null) {
+                setCookie("username", user, 365);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
