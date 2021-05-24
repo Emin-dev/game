@@ -40,7 +40,7 @@ $(document).ready(function () {
     let openYes = false;
 
 
-
+    let game = 99;
 
     let me = 0;
     let ai = 0;
@@ -52,6 +52,10 @@ $(document).ready(function () {
     $("#run").click(function (e) {
         e.preventDefault();
         if (runYes) {
+            if (game>=10) {
+                game-=5
+            }
+            
             btnmp3.play();
             runYes = false
 
@@ -134,7 +138,7 @@ $(document).ready(function () {
 
 
                         console.log("tempai = " + tempai)
-                        let num = Math.floor(Math.random() * 99);
+                        let num = Math.floor(Math.random() * game); 
                         console.log("num = " + num)
                         tempai += num;
 
@@ -249,11 +253,14 @@ $(document).ready(function () {
     });
 
 
-
+    let addMe3 = 0;
     $("#add").click(function (e) {
         e.preventDefault();
         if (addYes) {
-
+            addMe3++;
+            if (addMe3 >= 3) {
+                addMe3= false
+            }
             btnmp3.play();
 
             let num = Math.floor(Math.random() * 99);
