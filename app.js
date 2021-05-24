@@ -3,7 +3,7 @@
 
 $(document).ready(function () {
 
-    
+
 
     Howler.volume(0.1);
 
@@ -59,8 +59,12 @@ $(document).ready(function () {
     $("#bln").addClass("spinner");
 
 
+    $("#play").click(function (e) {
+        e.preventDefault();
+        $(this).css("display", "none");
+    });
 
-    
+
     setTimeout(() => { checkCookie() }, Math.floor(Math.random() * 1000) + 1000)
 
     $("#run").click(function (e) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,39 +9,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     <script src="app.js" defer></script>
-    <title>Game</title>
+    <title>Mumber</title>
 </head>
+
 <body style="background-color: #F7C59F;">
     <div class="container">
-        <div class="row">
+        <div class="row" style="display: flex; justify-content: center;">
+            <div class="col-md-12">
+                <h1 style="color: #ffa889;  font-size: xx-large; text-align: center;">Mumber Game <br>
+                    <h6 style="color: #ffa889;  font-size: small; text-align: center;">By Emin</h6>
+                </h1>
+            </div>
             <div class="col-sm-12 col-md-3">
                 <h2 style="color: #FF6B35; " id="ai">$0</h2>
             </div>
             <div class="col-sm-12 col-md-3">
-                    <h2 style="color: #FF6B35; " id="me">$0</h2>
+                <h2 style="color: #FF6B35; " id="me">$0</h2>
             </div>
             <div class="col-sm-12 col-md-3">
-                <h1  style="color: #FF6B35; cursor: pointer;" id="run">Run</h1>
-                <h1  style="color: #FF6B35; cursor: pointer;" id="add">Add</h1>
-                <h1  style="color: #FF6B35; cursor: pointer;" id="open">Open</h1>
+                <h1 style="color: #FF6B35; cursor: pointer;" id="run">Run</h1>
+                <h1 style="color: #FF6B35; cursor: pointer;" id="add">Add</h1>
+                <h1 style="color: #FF6B35; cursor: pointer;" id="open">Open</h1>
             </div>
             <div class="col-sm-12 col-md-3">
                 <h1 style="color: #FF6B35; " id="bln"><br> </h1>
                 <h3 style="color: #ff8e65; cursor: pointer;" id="reset">Reset</h3>
-        </div>
+            </div>
+
+            <div class="col-ms-12 col-md-5 " >
+                <h1 style="color: #ff5213;   font-size: large; text-align: center;" id="play">How to play? <br> You win if you get
+                    a higher number than the AI, and before you know each other's numbers, you can add the number to
+                    your hand if you think the number will be higher, but you only have 3 chances to try to add, and
+                    if the number you have more than 100 in your hand, you will lose
+                </h1>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
 
 
 <style>
-    .spinner{
+    .spinner {
         background-color: #F7C59F;
         --spinner-back-color: #F7C59F;
-        --spinner-fore-color:#FF6B35;
+        --spinner-fore-color: #FF6B35;
     }
-    *{
+
+    * {
         user-select: none;
     }
 </style>
