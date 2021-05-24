@@ -31,10 +31,11 @@ $(document).ready(function () {
         src: ['btnOlmaz.wav']
     });
     var i4to1mp3 = new Howl({
-        src: ['4to1.wav']
+        src: ['me.wav']
     });
 
     hmmmmp3.volume(1);
+    i4to1mp3.volume(1);
 
 
 
@@ -76,15 +77,15 @@ $(document).ready(function () {
             $("#me").html(" ")
             $("#ai").addClass("spinner");
             $("#me").addClass("spinner");
-            // setTimeout(()=> {i4to1mp3.play()},500)
+            setTimeout(()=> {i4to1mp3.play()},100)
             setTimeout(() => {
-                btnmp3.play();
+                i4to1mp3.stop();
                 $("#me").html("$" + me);
                 $("#me").removeClass("spinner");
                 openYes = true
                 addYes = true
-                // i4to1mp3.stop();
-            }, Math.floor(Math.random() * 3000) );
+                btnmp3.play();
+            }, Math.floor(Math.random() * 1000) + 3000);
         }
         else {
             btnOlmazmp3.play();
