@@ -2,20 +2,33 @@
 
 
 $(document).ready(function () {
-
-
-    var sound = new Howl({
-        src: ['i.mp3'],
-        autoplay: true,
-        loop: true
-    });
-
-    sound.play();
+    
     Howler.volume(10);
 
+    // var sound = new Howl({
+    //     src: ['i.mp3'],
+    //     autoplay: true,
+    //     loop: true
+    // });
+
+    // sound.play();
 
 
 
+    var btnmp3 = new Howl({
+        src: ['btn.wav']
+    });
+    var pulGeldimp3 = new Howl({
+        src: ['pulGeldi.wav']
+    });
+    var pulGetdiimp3 = new Howl({
+        src: ['pulGetdii.wav']
+    });
+    var hmmmmp3 = new Howl({
+        src: ['hmmm.mp3']
+    });
+
+    
 
 
 
@@ -29,8 +42,11 @@ $(document).ready(function () {
     let balance = 1000;
     let tempme = me;
     let tempai = ai;
+
+
     $("#run").click(function (e) {
         e.preventDefault();
+        btnmp3.play();
 
         
         me = 0;
@@ -57,6 +73,7 @@ $(document).ready(function () {
 
     $("#open").click(function (e) {
         e.preventDefault();
+        btnmp3.play();
 
         if ($("#ai").hasClass("spinner")) {
             $("#ai").html("$" + tempai)
@@ -76,10 +93,12 @@ $(document).ready(function () {
             let aihtml = $("#ai").html()
 
             setTimeout(() => {
+                hmmmmp3.play();
                 $("#ai").html(" ")
                 $("#ai").addClass("spinner");
             }, Math.floor(Math.random() * 1000) + 500);
             setTimeout(() => {
+                hmmmmp3.stop();
                 $("#ai").html(aihtml)
                 $("#ai").removeClass("spinner")
             }, Math.floor(Math.random() * 2000) + 2000);
@@ -114,20 +133,23 @@ $(document).ready(function () {
                         $("#bln").html(" ")
                         $("#bln").addClass("spinner");
                         setTimeout(() => {
+                            pulGeldimp3.play();
                             $("#bln").html("My balance: $" + balance);
                             $("#bln").removeClass("spinner");
-                        }, Math.floor(Math.random() * 1000) + 1000);
+                        }, Math.floor(Math.random() * 2000) + 2000);
 
                         let aihtml = $("#ai").html()
 
                         setTimeout(() => {
+                            hmmmmp3.play();
                             $("#ai").html(" ")
                             $("#ai").addClass("spinner");
                         }, Math.floor(Math.random() * 1000) + 500);
                         setTimeout(() => {
+                            hmmmmp3.stop();
                             $("#ai").html(aihtml + " +   $" + num)
                             $("#ai").removeClass("spinner")
-                        }, Math.floor(Math.random() * 1000) + 2000);
+                        }, Math.floor(Math.random() * 2000) + 2000);
                         clearInterval(stopme);
                     }
                     else {
@@ -136,13 +158,15 @@ $(document).ready(function () {
                         let aihtml = $("#ai").html()
 
                         setTimeout(() => {
+                            hmmmmp3.play();
                             $("#ai").html(" ")
                             $("#ai").addClass("spinner");
                         }, Math.floor(Math.random() * 1000) + 500);
                         setTimeout(() => {
+                            hmmmmp3.stop();
                             $("#ai").html(aihtml + " +   $" + num)
                             $("#ai").removeClass("spinner")
-                        }, Math.floor(Math.random() * 1000) + 2000);
+                        }, Math.floor(Math.random() * 2000) + 2000);
 
 
 
@@ -172,6 +196,7 @@ $(document).ready(function () {
                 $("#bln").html(" ")
                 $("#bln").addClass("spinner");
                 setTimeout(() => {
+                    pulGetdiimp3.play();
                     $("#bln").html("My balance: $" + balance);
                     $("#bln").removeClass("spinner");
                 }, Math.floor(Math.random() * 1000) + 1000);
@@ -181,6 +206,7 @@ $(document).ready(function () {
                 $("#bln").html(" ")
                 $("#bln").addClass("spinner");
                 setTimeout(() => {
+                    pulGeldimp3.play();
                     $("#bln").html("My balance: $" + balance);
                     $("#bln").removeClass("spinner");
                 }, Math.floor(Math.random() * 1000) + 1000);
@@ -194,6 +220,8 @@ $(document).ready(function () {
 
     $("#add").click(function (e) {
         e.preventDefault();
+        btnmp3.play();
+
         let num = Math.floor(Math.random() * 99);
         console.log("my num = " + num)
         console.log("my tempme = " + tempme)
