@@ -9,7 +9,7 @@ $(document).ready(function () {
       });
       
       sound.play();
-      
+      Howler.volume(10);
 
 
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
                         setTimeout(() => {
                             $("#bln").html("My balance: $" + balance);
                             $("#bln").removeClass("spinner");
-                        }, 5000);
+                        }, Math.floor(Math.random() * 1000) + 1000);
 
                         let aihtml = $("#ai").html()
 
@@ -150,7 +150,7 @@ $(document).ready(function () {
 
 
 
-            }, 4000);
+            }, Math.floor(Math.random() * 2000) + 2000);
 
 
 
