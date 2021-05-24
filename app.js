@@ -3,7 +3,7 @@
 
 $(document).ready(function () {
 
-    Howler.volume(10);
+    Howler.volume(0.1);
 
     // var sound = new Howl({
     //     src: ['i.mp3'],
@@ -30,8 +30,11 @@ $(document).ready(function () {
     var btnOlmazmp3 = new Howl({
         src: ['btnOlmaz.wav']
     });
+    var i4to1mp3 = new Howl({
+        src: ['4to1.wav']
+    });
 
-
+    hmmmmp3.volume(1);
 
 
 
@@ -47,7 +50,7 @@ $(document).ready(function () {
     let balance = 1000;
     let tempme = me;
     let tempai = ai;
-
+    let addMe3 = 0;
 
     $("#run").click(function (e) {
         e.preventDefault();
@@ -58,6 +61,7 @@ $(document).ready(function () {
             
             btnmp3.play();
             runYes = false
+            addMe3 = 0;
 
             me = 0;
             ai = 0;
@@ -72,14 +76,15 @@ $(document).ready(function () {
             $("#me").html(" ")
             $("#ai").addClass("spinner");
             $("#me").addClass("spinner");
-
+            // setTimeout(()=> {i4to1mp3.play()},500)
             setTimeout(() => {
                 btnmp3.play();
                 $("#me").html("$" + me);
                 $("#me").removeClass("spinner");
                 openYes = true
                 addYes = true
-            }, 4000);
+                // i4to1mp3.stop();
+            }, Math.floor(Math.random() * 3000) );
         }
         else {
             btnOlmazmp3.play();
@@ -120,7 +125,6 @@ $(document).ready(function () {
                     $("#ai").addClass("spinner");
                 }, Math.floor(Math.random() * 500) + 500);
                 setTimeout(() => {
-                    hmmmmp3.stop();
                     $("#ai").html(aihtml)
                     $("#ai").removeClass("spinner")
                 }, Math.floor(Math.random() * 1500) + 2000);
@@ -171,7 +175,6 @@ $(document).ready(function () {
                                 $("#ai").addClass("spinner");
                             }, Math.floor(Math.random() * 500) + 500);
                             setTimeout(() => {
-                                hmmmmp3.stop();
                                 $("#ai").html(aihtml + " +   $" + num)
                                 $("#ai").removeClass("spinner")
                             }, Math.floor(Math.random() * 900) + 2000);
@@ -188,7 +191,6 @@ $(document).ready(function () {
                                 $("#ai").addClass("spinner");
                             }, Math.floor(Math.random() * 500) + 500);
                             setTimeout(() => {
-                                hmmmmp3.stop();
                                 $("#ai").html(aihtml + " +   $" + num)
                                 $("#ai").removeClass("spinner")
                             }, Math.floor(Math.random() * 1000) + 2000);
@@ -254,7 +256,7 @@ $(document).ready(function () {
     });
 
 
-    let addMe3 = 0;
+    
     $("#add").click(function (e) {
         e.preventDefault();
         if (addYes) {
