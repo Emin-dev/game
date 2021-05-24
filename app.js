@@ -61,7 +61,7 @@ $(document).ready(function () {
 
     $("#play").click(function (e) {
         e.preventDefault();
-        $(this).css("display", "none");
+        $(this).css("display", "none")
     });
 
 
