@@ -27,6 +27,9 @@ $(document).ready(function () {
     var hmmmmp3 = new Howl({
         src: ['hmmm.mp3']
     });
+    var i4to1mp3 = new Howl({
+        src: ['4to1.wav']
+    });
 
     
 
@@ -63,9 +66,10 @@ $(document).ready(function () {
         $("#ai").addClass("spinner");
         $("#me").addClass("spinner");
         setTimeout(() => {
+            btnmp3.play();
             $("#me").html("$" + me);
             $("#me").removeClass("spinner");
-        }, Math.floor(Math.random() * 3000));
+        }, 4000);
 
 
     });
@@ -96,12 +100,12 @@ $(document).ready(function () {
                 hmmmmp3.play();
                 $("#ai").html(" ")
                 $("#ai").addClass("spinner");
-            }, Math.floor(Math.random() * 1000) + 500);
+            }, Math.floor(Math.random() * 500) + 500);
             setTimeout(() => {
                 hmmmmp3.stop();
                 $("#ai").html(aihtml)
                 $("#ai").removeClass("spinner")
-            }, Math.floor(Math.random() * 2000) + 2000);
+            }, Math.floor(Math.random() * 1500) + 2000);
 
             let stopme = setInterval(() => {
                 console.log("randomClicks = " + randomClicks)
@@ -136,7 +140,7 @@ $(document).ready(function () {
                             pulGeldimp3.play();
                             $("#bln").html("My balance: $" + balance);
                             $("#bln").removeClass("spinner");
-                        }, Math.floor(Math.random() * 2000) + 2000);
+                        }, 3900);
 
                         let aihtml = $("#ai").html()
 
@@ -144,12 +148,12 @@ $(document).ready(function () {
                             hmmmmp3.play();
                             $("#ai").html(" ")
                             $("#ai").addClass("spinner");
-                        }, Math.floor(Math.random() * 1000) + 500);
+                        }, Math.floor(Math.random() * 500) + 500);
                         setTimeout(() => {
                             hmmmmp3.stop();
                             $("#ai").html(aihtml + " +   $" + num)
                             $("#ai").removeClass("spinner")
-                        }, Math.floor(Math.random() * 2000) + 2000);
+                        }, Math.floor(Math.random() * 900) + 2000);
                         clearInterval(stopme);
                     }
                     else {
@@ -161,12 +165,12 @@ $(document).ready(function () {
                             hmmmmp3.play();
                             $("#ai").html(" ")
                             $("#ai").addClass("spinner");
-                        }, Math.floor(Math.random() * 1000) + 500);
+                        }, Math.floor(Math.random() * 500) + 500);
                         setTimeout(() => {
                             hmmmmp3.stop();
                             $("#ai").html(aihtml + " +   $" + num)
                             $("#ai").removeClass("spinner")
-                        }, Math.floor(Math.random() * 2000) + 2000);
+                        }, Math.floor(Math.random() * 1000) + 2000);
 
 
 
@@ -178,7 +182,7 @@ $(document).ready(function () {
 
 
 
-            }, Math.floor(Math.random() * 2000) + 2000);
+            }, 4000);
 
 
 
@@ -236,6 +240,7 @@ $(document).ready(function () {
             $("#bln").html(" ")
             $("#bln").addClass("spinner");
             setTimeout(() => {
+                pulGetdiimp3.play();
                 $("#bln").html("My balance: $" + balance);
                 $("#bln").removeClass("spinner");
             }, Math.floor(Math.random() * 1000) + 1000);
