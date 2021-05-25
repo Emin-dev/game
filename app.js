@@ -46,6 +46,7 @@ $(document).ready(function () {
             setTimeout(() => { memp3.play() }, 100)
             runYes = false
             addMe3 = true;
+            addMe3temp=0;
             me = 0;
             ai = 0;
             me = Math.floor(Math.random() * 99) + 1;
