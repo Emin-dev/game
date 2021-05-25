@@ -2,21 +2,7 @@
 
 
 $(document).ready(function () {
-
-
-
     Howler.volume(0.1);
-
-    // let sound = new Howl({
-    //     src: ['i.mp3'],
-    //     autoplay: true,
-    //     loop: true
-    // });
-
-    // sound.play();
-
-
-
     let btnmp3 = new Howl({
         src: ['btn.wav']
     });
@@ -35,58 +21,40 @@ $(document).ready(function () {
     let i4to1mp3 = new Howl({
         src: ['me.wav']
     });
-
     hmmmmp3.volume(1);
-    i4to1mp3.volume(1);
-
-
-
+    i4to1mp3.volume(0.3);
     let runYes = false;
     let addYes = false;
     let openYes = false;
-
-
     let game = 99;
-
     let me = 0;
     let ai = 0;
     let balance = 1000;
     let tempme = me;
     let tempai = ai;
     let addMe3 = 0;
-
     $("#bln").html(" ")
     $("#bln").addClass("spinner");
-
-
     $("#play").click(function (e) {
         e.preventDefault();
         $(this).css("display", "none")
     });
-
-
     setTimeout(() => { checkCookie() }, Math.floor(Math.random() * 1000) + 1000)
-
     $("#run").click(function (e) {
         e.preventDefault();
         if (runYes) {
             if (game >= 10) {
                 game -= 5
             }
-
             btnmp3.play();
             runYes = false
             addMe3 = 0;
-
             me = 0;
             ai = 0;
-
             me = Math.floor(Math.random() * 99) + 1;
             tempme = me;
-
             ai = Math.floor(Math.random() * 99) + 1;
             tempai = ai;
-
             $("#ai").html(" ")
             $("#me").html(" ")
             $("#ai").addClass("spinner");
@@ -104,36 +72,25 @@ $(document).ready(function () {
         else {
             btnOlmazmp3.play();
         }
-
-
-
     });
-
-
     $("#open").click(function (e) {
         e.preventDefault();
         if (openYes) {
             addYes = false
             openYes = false
             btnmp3.play();
-
             if ($("#ai").hasClass("spinner")) {
                 $("#ai").html("$" + tempai)
                 $("#ai").removeClass("spinner");
             }
-
             if (tempme == tempai) {
                 $("#ai").html("$0")
                 $("#me").html("$0")
-
             }
             if (tempme > tempai) {
                 let i = 0;
                 let randomClicks = Math.floor(Math.random() * 3);
-
-
                 let aihtml = $("#ai").html()
-
                 setTimeout(() => {
                     hmmmmp3.play();
                     $("#ai").html(" ")
@@ -143,35 +100,18 @@ $(document).ready(function () {
                     $("#ai").html(aihtml)
                     $("#ai").removeClass("spinner")
                 }, Math.floor(Math.random() * 1500) + 2000);
-
                 let stopme = setInterval(() => {
-                    console.log("randomClicks = " + randomClicks)
-                    console.log(i)
-
                     if (i >= randomClicks) {
                         clearInterval(stopme);
                         myif();
                     } else {
-
                         i++;
-
-
-
-                        console.log("tempai = " + tempai)
                         let num = Math.floor(Math.random() * game);
-                        console.log("num = " + num)
                         tempai += num;
-
-                        console.log("tempai + = " + tempai)
                         if (tempai > 100) {
-                            console.log("ai = " + ai)
                             ai = tempai
                             balance += ai;
                             setCookie("username", balance, 365);
-                            console.log("ai=temp = " + ai)
-
-
-
                             $("#bln").html(" ")
                             $("#bln").addClass("spinner");
                             setTimeout(() => {
@@ -182,9 +122,7 @@ $(document).ready(function () {
                                 runYes = true
                                 $("#bln").removeClass("spinner");
                             }, 3900);
-
                             let aihtml = $("#ai").html()
-
                             setTimeout(() => {
                                 hmmmmp3.play();
                                 $("#ai").html(" ")
@@ -198,9 +136,7 @@ $(document).ready(function () {
                         }
                         else {
                             ai = tempai
-
                             let aihtml = $("#ai").html()
-
                             setTimeout(() => {
                                 hmmmmp3.play();
                                 $("#ai").html(" ")
@@ -210,30 +146,13 @@ $(document).ready(function () {
                                 $("#ai").html(aihtml + " +   $" + num)
                                 $("#ai").removeClass("spinner")
                             }, Math.floor(Math.random() * 1000) + 2000);
-
-
-
                         }
-
                     }
-
-
-
-
-
                 }, 4000);
-
-
-
-
-
-
-
             } else {
                 myif();
             }
             function myif() {
-                console.log("myif")
                 if (tempme < tempai) {
                     balance -= tempme;
                     setCookie("username", balance, 365);
@@ -262,19 +181,12 @@ $(document).ready(function () {
                         $("#bln").removeClass("spinner");
                     }, Math.floor(Math.random() * 1000) + 1000);
                 }
-
             }
-
         }
         else {
             btnOlmazmp3.play();
         }
-
-
     });
-
-
-
     $("#add").click(function (e) {
         e.preventDefault();
         if (addYes) {
@@ -283,10 +195,7 @@ $(document).ready(function () {
                 addMe3 = false
             }
             btnmp3.play();
-
             let num = Math.floor(Math.random() * 99);
-            console.log("my num = " + num)
-            console.log("my tempme = " + tempme)
             tempme += num
             if (tempme > 100) {
                 if ($("#ai").hasClass("spinner")) {
@@ -310,19 +219,11 @@ $(document).ready(function () {
             else {
                 $("#me").html($("#me").html() + " +   $" + num);
             }
-
         }
         else {
             btnOlmazmp3.play();
         }
-
-
-
     });
-
-
-
-
     $("#reset").click(function (e) {
         e.preventDefault();
         let user = getCookie("username");
@@ -330,17 +231,12 @@ $(document).ready(function () {
         btnmp3.play();
         location.reload();
     });
-
-
-
-
     function setCookie(cname, cvalue, exdays) {
         let d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
         let expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
-
     function getCookie(cname) {
         let name = cname + "=";
         let ca = document.cookie.split(';');
@@ -355,7 +251,6 @@ $(document).ready(function () {
         }
         return "";
     }
-
     function checkCookie() {
         let user = getCookie("username");
         if (user != "") {
@@ -377,20 +272,6 @@ $(document).ready(function () {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    console.log('%c Mumber Game', 'color: #ffa889;  font-size: xx-large; text-align: center;')
+    console.log('%c By Emin', 'color: #ffa889;  font-size: xx-large; text-align: center;')
 });
