@@ -30,7 +30,8 @@ $(document).ready(function () {
     let balance = 1000;
     let tempme = me;
     let tempai = ai;
-    let addMe3 = 0;
+    let addMe3 = true;
+    let addMe3temp = 0;
     $("#bln").html(" ")
     $("#bln").addClass("spinner");
     $("#play").click(function (e) {
@@ -44,7 +45,7 @@ $(document).ready(function () {
             btnmp3.play();
             setTimeout(() => { memp3.play() }, 100)
             runYes = false
-            addMe3 = 0;
+            addMe3 = true;
             me = 0;
             ai = 0;
             me = Math.floor(Math.random() * 99) + 1;
@@ -185,10 +186,11 @@ $(document).ready(function () {
     });
     $("#add").click(function (e) {
         e.preventDefault();
-        if (addYes) {
-            addMe3++;
-            if (addMe3 >= 3) {
+        if (addYes && addMe3) {
+            addMe3temp++;
+            if (addMe3temp >= 3) {
                 addMe3 = false
+                addMe3temp=0;
             }
             btnmp3.play();
             let num = Math.floor(Math.random() * 99);
