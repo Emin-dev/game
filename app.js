@@ -22,11 +22,10 @@ $(document).ready(function () {
         src: ['me.wav']
     });
     hmmmmp3.volume(1);
-    i4to1mp3.volume(0.3);
+    i4to1mp3.volume(0.5);
     let runYes = false;
     let addYes = false;
     let openYes = false;
-    let game = 99;
     let me = 0;
     let ai = 0;
     let balance = 1000;
@@ -43,10 +42,7 @@ $(document).ready(function () {
     $("#run").click(function (e) {
         e.preventDefault();
         if (runYes) {
-            if (game >= 10) {
-                game -= 5
-            }
-            btnmp3.play();
+            i4to1mp3.play()
             runYes = false
             addMe3 = 0;
             me = 0;
@@ -59,7 +55,7 @@ $(document).ready(function () {
             $("#me").html(" ")
             $("#ai").addClass("spinner");
             $("#me").addClass("spinner");
-            setTimeout(() => { i4to1mp3.play() }, 100)
+            setTimeout(() => { btnmp3.play(); }, 100)
             setTimeout(() => {
                 i4to1mp3.stop();
                 $("#me").html("$" + me);
