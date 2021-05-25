@@ -18,11 +18,10 @@ $(document).ready(function () {
     let btnOlmazmp3 = new Howl({
         src: ['btnOlmaz.wav']
     });
-    let i4to1mp3 = new Howl({
+    let memp3 = new Howl({
         src: ['me.wav']
     });
     hmmmmp3.volume(1);
-    i4to1mp3.volume(0.5);
     let runYes = false;
     let addYes = false;
     let openYes = false;
@@ -42,7 +41,8 @@ $(document).ready(function () {
     $("#run").click(function (e) {
         e.preventDefault();
         if (runYes) {
-            i4to1mp3.play()
+            btnmp3.play();
+            setTimeout(()=> {memp3.play()}, 100)
             runYes = false
             addMe3 = 0;
             me = 0;
@@ -55,9 +55,8 @@ $(document).ready(function () {
             $("#me").html(" ")
             $("#ai").addClass("spinner");
             $("#me").addClass("spinner");
-            setTimeout(() => { btnmp3.play(); }, 100)
             setTimeout(() => {
-                i4to1mp3.stop();
+                memp3.stop();
                 $("#me").html("$" + me);
                 $("#me").removeClass("spinner");
                 openYes = true
