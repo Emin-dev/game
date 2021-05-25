@@ -59,7 +59,7 @@ $(document).ready(function () {
             $("#me").html(" ")
             $("#ai").addClass("spinner");
             $("#me").addClass("spinner");
-            setTimeout(() => { i4to1mp3.play() }, 100)
+            setTimeout(() => { i4to1mp3.play() }, 300)
             setTimeout(() => {
                 i4to1mp3.stop();
                 $("#me").html("$" + me);
