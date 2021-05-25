@@ -42,7 +42,7 @@ $(document).ready(function () {
         e.preventDefault();
         if (runYes) {
             btnmp3.play();
-            setTimeout(()=> {memp3.play()}, 100)
+            setTimeout(() => { memp3.play() }, 100)
             runYes = false
             addMe3 = 0;
             me = 0;
@@ -83,32 +83,34 @@ $(document).ready(function () {
                 $("#me").html("$0")
             }
             if (tempme > tempai) {
+                $("#bln").html(" ")
+                $("#bln").addClass("spinner");
                 let i = 0;
                 let randomClicks = Math.floor(Math.random() * 3);
                 let aihtml = $("#ai").html()
+                let myram = Math.floor(Math.random() * 10000)
                 setTimeout(() => {
                     hmmmmp3.play();
                     $("#ai").html(" ")
                     $("#ai").addClass("spinner");
-                }, Math.floor(Math.random() * 500) + 500);
+                }, 500);
                 setTimeout(() => {
                     $("#ai").html(aihtml)
                     $("#ai").removeClass("spinner")
-                }, Math.floor(Math.random() * 1500) + 2000);
+                }, myram);
                 let stopme = setInterval(() => {
                     if (i >= randomClicks) {
                         clearInterval(stopme);
                         myif();
                     } else {
                         i++;
-                        let num = Math.floor(Math.random() * game);
+                        let num = Math.floor(Math.random() * 99);
                         tempai += num;
                         if (tempai > 100) {
                             ai = tempai
                             balance += ai;
                             setCookie("username", balance, 365);
-                            $("#bln").html(" ")
-                            $("#bln").addClass("spinner");
+
                             setTimeout(() => {
                                 pulGeldimp3.play();
                                 $("#bln").html("My balance: $" + balance);
@@ -116,17 +118,17 @@ $(document).ready(function () {
                                 addYes = false
                                 runYes = true
                                 $("#bln").removeClass("spinner");
-                            }, 3900);
+                            }, myram);
                             let aihtml = $("#ai").html()
                             setTimeout(() => {
                                 hmmmmp3.play();
                                 $("#ai").html(" ")
                                 $("#ai").addClass("spinner");
-                            }, Math.floor(Math.random() * 500) + 500);
+                            }, 500);
                             setTimeout(() => {
                                 $("#ai").html(aihtml + " +   $" + num)
                                 $("#ai").removeClass("spinner")
-                            }, Math.floor(Math.random() * 900) + 2000);
+                            }, myram);
                             clearInterval(stopme);
                         }
                         else {
@@ -136,23 +138,24 @@ $(document).ready(function () {
                                 hmmmmp3.play();
                                 $("#ai").html(" ")
                                 $("#ai").addClass("spinner");
-                            }, Math.floor(Math.random() * 500) + 500);
+                            }, 500 );
+                            
                             setTimeout(() => {
                                 $("#ai").html(aihtml + " +   $" + num)
                                 $("#ai").removeClass("spinner")
-                            }, Math.floor(Math.random() * 1000) + 2000);
+                            }, myram);
                         }
                     }
-                }, 4000);
+                }, myram + 500);
             } else {
+                $("#bln").html(" ")
+                $("#bln").addClass("spinner");
                 myif();
             }
             function myif() {
                 if (tempme < tempai) {
                     balance -= tempme;
                     setCookie("username", balance, 365);
-                    $("#bln").html(" ")
-                    $("#bln").addClass("spinner");
                     setTimeout(() => {
                         pulGetdiimp3.play();
                         $("#bln").html("My balance: $" + balance);
@@ -160,13 +163,11 @@ $(document).ready(function () {
                         addYes = false
                         runYes = true
                         $("#bln").removeClass("spinner");
-                    }, Math.floor(Math.random() * 1000) + 1000);
+                    }, 500 );
                 }
                 if (tempme > tempai) {
                     balance += ai;
                     setCookie("username", balance, 365);
-                    $("#bln").html(" ")
-                    $("#bln").addClass("spinner");
                     setTimeout(() => {
                         pulGeldimp3.play();
                         $("#bln").html("My balance: $" + balance);
@@ -174,7 +175,7 @@ $(document).ready(function () {
                         addYes = false
                         runYes = true
                         $("#bln").removeClass("spinner");
-                    }, Math.floor(Math.random() * 1000) + 1000);
+                    }, 500 );
                 }
             }
         }
