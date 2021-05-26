@@ -22,6 +22,7 @@ $(document).ready(function () {
         src: ['me.wav']
     });
     hmmmmp3.volume(1);
+    memp3.volume(0.08)
     let runYes = false;
     let addYes = false;
     let openYes = false;
@@ -116,6 +117,8 @@ $(document).ready(function () {
                             setTimeout(() => {
                                 pulGeldimp3.play();
                                 $("#bln").html("My balance: $" + balance);
+                                $("#blnaction").html(`(+${ai})`)
+                                setTimeout(()=>{$("#blnaction").html(" ")},3000)
                                 openYes = false
                                 addYes = false
                                 runYes = true
@@ -161,6 +164,8 @@ $(document).ready(function () {
                     setTimeout(() => {
                         pulGetdiimp3.play();
                         $("#bln").html("My balance: $" + balance);
+                        $("#blnaction").html(`(-${tempme})`)
+                        setTimeout(()=>{$("#blnaction").html(" ")},3000)
                         openYes = false
                         addYes = false
                         runYes = true
@@ -173,6 +178,8 @@ $(document).ready(function () {
                     setTimeout(() => {
                         pulGeldimp3.play();
                         $("#bln").html("My balance: $" + balance);
+                        $("#blnaction").html(`(+${ai})`)
+                        setTimeout(()=>{$("#blnaction").html(" ")},3000)
                         openYes = false
                         addYes = false
                         runYes = true
@@ -209,6 +216,8 @@ $(document).ready(function () {
                 setTimeout(() => {
                     pulGetdiimp3.play();
                     $("#bln").html("My balance: $" + balance);
+                    $("#blnaction").html(`(-${tempme})`)
+                        setTimeout(()=>{$("#blnaction").html(" ")},3000)
                     openYes = false
                     addYes = false
                     runYes = true
