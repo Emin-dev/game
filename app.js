@@ -151,7 +151,7 @@ $(document).ready(function () {
                             }, myram);
                         }
                     }
-                }, myram + 500);
+                }, myram + 1000);
             } else {
                 $("#bln").html(" ")
                 $("#bln").addClass("spinner");
