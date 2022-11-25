@@ -116,7 +116,7 @@ $(document).ready(function () {
 
                             setTimeout(() => {
                                 pulGeldimp3.play();
-                                $("#bln").html("My balance: $" + balance);
+                                $("#bln").html("Balansım: $" + balance);
                                 $("#blnaction").html(`(+${ai})`)
                                 setTimeout(()=>{$("#blnaction").html(" ")},3000)
                                 openYes = false
