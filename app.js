@@ -262,14 +262,14 @@ $(document).ready(function () {
     function checkCookie() {
         let user = getCookie("username");
         if (user != "") {
-            $("#bln").html("My balance: $" + user);
+            $("#bln").html("Balansım: $" + user);
             openYes = false
             addYes = false
             runYes = true
             $("#bln").removeClass("spinner");
         } else {
             user = balance;
-            $("#bln").html("My balance: $" + balance);
+            $("#bln").html("Balansım: $" + balance);
             openYes = false
             addYes = false
             runYes = true
